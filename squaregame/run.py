@@ -35,4 +35,5 @@ if not platform.system() == system_required:
     print(style.BOLD + fore.RED + "Warning: Your " + platform.system() + " system may not work with this script" + style.RESET)
 
 #
+import music
 import game
