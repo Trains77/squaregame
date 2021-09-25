@@ -1,3 +1,5 @@
 This Script was made under Linux and was made under the assumption that you are using Linux
 
 More likely than not, this script will NOT work under non-linux systems
+
+It does also need a valid X server to work, it might work on wayland tho, I'm not to sure
