@@ -1,7 +1,7 @@
 # Script Modules
 import platform
 import sys
-import getpass
+# import getpass
 import colored
 from colored import fore, back, style
 # import time
@@ -15,12 +15,10 @@ from shared import enable_os_restrictions
 
 # This script was made in linux, it may not work on other operating systems
 
-print( "Hello", getpass.getuser())
-print()
+# print(fore.GREEN,"Hello", getpass.getuser(), style.RESET)
 # OS Checker
 if enable_os_restrictions == 1:
     if platform.system() == system_required:
-        print( "Your", platform.system(), "system is supported!")
         supported = True
 # Seperator thing
 if enable_os_restrictions == 1:
