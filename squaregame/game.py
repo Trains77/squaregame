@@ -9,7 +9,7 @@ import pygame
 from pygame.locals import *
 pygame.init()
 from time import sleep
-from shared import credits, size, GameName, square2size, square_color
+from shared import credits, size, GameName, square2size, square_color, evil_square_color
 from colored import fore, back, style
 
 # Credits
@@ -33,6 +33,9 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption(GameName)
 done = False
 clock = pygame.time.Clock()
+# Square 1
+square1x1 = 200
+square1y1 = 200
 # Square 2
 square2x1 = 100
 square2y1 = 100
@@ -40,7 +43,10 @@ square2y1 = 100
 while not done:
     # clock.tick() limits the while loop to a max of 10 times per second.
         clock.tick(10)
-
+        if square2x1 == square1x1:
+            if square2y1 == square1y1:
+                print(fore.RED + "You Died!" + style.RESET)
+                done = True
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -55,6 +61,7 @@ while not done:
                 done = True  # done variable that we are complete, so we exit this
         screen.fill((0, 0, 0))
         pygame.draw.rect(screen, square_color, [square2x1,square2y1,square2size,square2size])
+        pygame.draw.rect(screen, evil_square_color, [square1x1,square1y1,square2size,square2size])
         pygame.display.flip()
 # Quite the execution when clicking on close
 pygame.quit()
