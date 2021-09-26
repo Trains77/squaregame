@@ -1,7 +1,7 @@
 #Script Settings
-enable_os_restrictions = 1
+enable_os_restrictions = 0
 song = 'Audio/music.wav'
-credits = 1
+credits = 0
 size = [500, 500]
 GameName = "Square Game"
 game_enabled = True
@@ -12,3 +12,6 @@ square_size = 20
 enable_tutorial = 1
 game_border1 = 480
 game_border2 = 0
+fps   = 40
+ani   = 4
+speed = 10
