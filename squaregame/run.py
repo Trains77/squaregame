@@ -4,6 +4,7 @@ import sys
 # import getpass
 import colored
 from colored import fore, back, style
+import time
 # import time
 # import os
 # Script Variables DO NOT TOUCH
@@ -11,7 +12,7 @@ system_required = "Linux"
 # system_unsupported = "Windows"
 
 # Script Settings
-from shared import enable_os_restrictions
+from shared import enable_os_restrictions, GameName, discord_presence
 
 # This script was made in linux, it may not work on other operating systems
 
@@ -33,5 +34,7 @@ if not platform.system() == system_required:
     print(style.BOLD + fore.RED + "Warning: Your " + platform.system() + " system may not work with this script" + style.RESET)
 
 #
+if discord_presence == 1:
+    import discord
 import music
 import game

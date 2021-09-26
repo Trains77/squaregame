@@ -7,8 +7,10 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 from pygame.locals import *
+from pypresence import Presence
 pygame.init()
 from time import sleep
+import time
 from shared import credits, size, GameName, square_size, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
 from colored import fore, back, style
 import math
@@ -45,15 +47,15 @@ bordered8 = 0
 bordered9 = 0
 bordered10 = 0
 # Square 1
-square1x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x3 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x4 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x5 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square1x9 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1x1 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x2 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x3 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x4 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x5 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x6 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x7 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x8 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x9 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 
 
 square1y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -73,6 +75,7 @@ square2y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square3x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square3y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 # Game
+
 while not done:
     # clock.tick() limits the while loop to a max of 10 times per second.
         clock.tick(fps)
