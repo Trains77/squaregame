@@ -1,5 +1,7 @@
-# Square "Game"
-It is a really bad and dumb square game I made, it is currently a game where you move a yellow square around in a black void
+# Square Game
+This is my first python program I have ever made, and it is pretty bad
+
+The game is basically you move a yellow square torwards a greenish square while avoiding the red squares
 
 You move with the arrow keys
 
