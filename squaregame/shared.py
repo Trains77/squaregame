@@ -12,6 +12,4 @@ square_size = 20
 enable_tutorial = 1
 game_border1 = 480
 game_border2 = 0
-fps   = 40
-ani   = 4
 speed = 10

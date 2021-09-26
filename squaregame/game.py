@@ -29,8 +29,6 @@ if credits == 1:
     print()
     print("Other Used Resources: www.javatpoint.com")
     print(style.RESET)
-# Audio
-# moved
 # Display
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption(GameName)
@@ -45,6 +43,7 @@ bordered6 = 0
 bordered7 = 0
 bordered8 = 0
 bordered9 = 0
+bordered10 = 0
 # Square 1
 square1x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -54,6 +53,7 @@ square1x5 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1x9 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 
 
 square1y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -64,6 +64,7 @@ square1y5 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1y9 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 
 # Square 2
 square2x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -141,17 +142,6 @@ while not done:
         elif square1x6 == game_border2:
             bordered6 = 0
 # end of stuff
-        if not square3y1 == game_border1:
-            if bordered7 == 0:
-                square3y1 = square3y1 + speed
-        elif square3y1 == game_border1:
-            bordered7 = 1
-        if not square3y1 == game_border2:
-            if bordered7 == 1:
-                square3y1 = square3y1 - speed
-        elif square3y1 == game_border2:
-            bordered7 = 0
-# end of stuff
         if not square1y8 == game_border1:
             if bordered9 == 0:
                 square1y8 = square1y8 + speed
@@ -174,6 +164,29 @@ while not done:
         elif square1y7 == game_border2:
             bordered8 = 0
 # end of stuff
+        if not square1y9 == game_border1:
+            if bordered10 == 0:
+                square1y9 = square1y9 + speed
+        elif square1y9 == game_border1:
+            bordered10 = 1
+        if not square1y9 == game_border2:
+            if bordered10 == 1:
+                square1y9 = square1y9 - speed
+        elif square1y9 == game_border2:
+            bordered10 = 0
+# end of stuff
+        if not square3y1 == game_border1:
+            if bordered7 == 0:
+                square3y1 = square3y1 + speed
+        elif square3y1 == game_border1:
+            bordered7 = 1
+        if not square3y1 == game_border2:
+            if bordered7 == 1:
+                square3y1 = square3y1 - speed
+        elif square3y1 == game_border2:
+            bordered7 = 0
+# end of stuff
+
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -200,6 +213,7 @@ while not done:
         evil_square5 = pygame.draw.rect(screen, evil_square_color, [square1x6,square1y6,square_size,square_size])
         evil_square6 = pygame.draw.rect(screen, evil_square_color, [square1x8,square1y8,square_size,square_size])
         evil_square7 = pygame.draw.rect(screen, evil_square_color, [square1x7,square1y7,square_size,square_size])
+        evil_square8 = pygame.draw.rect(screen, evil_square_color, [square1x9,square1y9,square_size,square_size])
 
         good_square = pygame.draw.rect(screen, good_square_color, [square3x1,square3y1,square_size,square_size])
 #        image_display(screen, "Textures/dragons.png", [100,100])
@@ -219,6 +233,15 @@ while not done:
             print(fore.RED + "You Died!" + style.RESET)
             done = True
         if pygame.Rect.colliderect(player_square, evil_square5) == 1:
+            print(fore.RED + "You Died!" + style.RESET)
+            done = True
+        if pygame.Rect.colliderect(player_square, evil_square6) == 1:
+            print(fore.RED + "You Died!" + style.RESET)
+            done = True
+        if pygame.Rect.colliderect(player_square, evil_square7) == 1:
+            print(fore.RED + "You Died!" + style.RESET)
+            done = True
+        if pygame.Rect.colliderect(player_square, evil_square8) == 1:
             print(fore.RED + "You Died!" + style.RESET)
             done = True
         if pygame.Rect.colliderect(player_square, good_square) == 1:
