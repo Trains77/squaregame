@@ -6,7 +6,7 @@ You need to upload your image(s) here:
 https://discord.com/developers/applications/719705230941618259/rich-presence/assets
 """
 
-client_id = ''  # Fake ID, put your real one here
+client_id = '719705230941618259'
 RPC = Presence(client_id)  # Initialize the client class
 RPC.connect() # Start the handshake loop
 
