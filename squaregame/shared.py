@@ -1,7 +1,7 @@
 #Script Settings
 enable_os_restrictions = 0
 song = 'Audio/music.wav'
-credits = 0
+credits = 1
 size = [500, 500]
 GameName = "Square Game"
 game_enabled = True
