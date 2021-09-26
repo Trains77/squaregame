@@ -13,3 +13,4 @@ enable_tutorial = 1
 game_border1 = 480
 game_border2 = 0
 speed = 10
+fps = 20

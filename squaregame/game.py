@@ -9,7 +9,7 @@ import pygame
 from pygame.locals import *
 pygame.init()
 from time import sleep
-from shared import credits, size, GameName, square_size, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
+from shared import credits, size, GameName, square_size, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
 from colored import fore, back, style
 import math
 import random
@@ -21,7 +21,7 @@ if credits == 1:
     print(fore.BLUE)
     print("Program by Trains77")
     print()
-    print("Song: '8 Bit Menu' by Fesliyan Studios")
+    print("Background Music: https://www.FesliyanStudios.com")
     print()
     print("Made with Atom Editor")
     print()
@@ -75,7 +75,7 @@ square3y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 # Game
 while not done:
     # clock.tick() limits the while loop to a max of 10 times per second.
-        clock.tick(10)
+        clock.tick(fps)
         if not square1x1 == game_border1:
             if bordered1 == 0:
                 square1x1 = square1x1 + speed
