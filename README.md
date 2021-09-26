@@ -7,6 +7,6 @@ It requires python 3.6 running on a ~~Linux system to run~~ it will run on Windo
 
 Requires the following packages: colored, pygame, and pydub
 
-It does also need a valid X server to work, it might work on wayland tho, I'm not to sure
+It does also need a Display server to work on Linux, it might work on wayland, I haven't tested
 
 #
