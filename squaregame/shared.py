@@ -14,4 +14,4 @@ game_border1 = 480
 game_border2 = 0
 speed = 10
 fps = 30
-discord_presence = 1
+discord_presence = 0
