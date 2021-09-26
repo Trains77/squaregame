@@ -43,6 +43,8 @@ bordered4 = 0
 bordered5 = 0
 bordered6 = 0
 bordered7 = 0
+bordered8 = 0
+bordered9 = 0
 # Square 1
 square1x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -50,6 +52,9 @@ square1x3 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x4 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x5 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1x6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1x7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1x8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+
 
 square1y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -57,6 +62,8 @@ square1y3 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y4 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y5 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1y7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1y8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 
 # Square 2
 square2x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -145,6 +152,28 @@ while not done:
         elif square3y1 == game_border2:
             bordered7 = 0
 # end of stuff
+        if not square1y8 == game_border1:
+            if bordered9 == 0:
+                square1y8 = square1y8 + speed
+        elif square1y8 == game_border1:
+            bordered9 = 1
+        if not square1y8 == game_border2:
+            if bordered9 == 1:
+                square1y8 = square1y8 - speed
+        elif square1y8 == game_border2:
+            bordered9 = 0
+# end of stuff
+        if not square1y7 == game_border1:
+            if bordered8 == 0:
+                square1y7 = square1y7 + speed
+        elif square1y7 == game_border1:
+            bordered8 = 1
+        if not square1y7 == game_border2:
+            if bordered8 == 1:
+                square1y7 = square1y7 - speed
+        elif square1y7 == game_border2:
+            bordered8 = 0
+# end of stuff
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -169,6 +198,9 @@ while not done:
         evil_square3 = pygame.draw.rect(screen, evil_square_color, [square1x4,square1y4,square_size,square_size])
         evil_square4 = pygame.draw.rect(screen, evil_square_color, [square1x5,square1y5,square_size,square_size])
         evil_square5 = pygame.draw.rect(screen, evil_square_color, [square1x6,square1y6,square_size,square_size])
+        evil_square6 = pygame.draw.rect(screen, evil_square_color, [square1x8,square1y8,square_size,square_size])
+        evil_square7 = pygame.draw.rect(screen, evil_square_color, [square1x7,square1y7,square_size,square_size])
+
         good_square = pygame.draw.rect(screen, good_square_color, [square3x1,square3y1,square_size,square_size])
 #        image_display(screen, "Textures/dragons.png", [100,100])
         if pygame.Rect.colliderect(player_square, evil_square) == 1:
