@@ -1,13 +1,11 @@
 # Script Modules
 import platform
 import sys
-# import getpass
 import colored
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 from pygame.locals import *
-from pypresence import Presence
 pygame.init()
 from time import sleep
 import time
@@ -19,18 +17,7 @@ def image_display(surface, filename, xy):
     img = pygame.image.load(filename)
     surface.blit(img, xy)
 # Credits
-if credits == 1:
-    print(fore.BLUE)
-    print("Program by Trains77")
-    print()
-    print("Background Music: https://www.FesliyanStudios.com")
-    print()
-    print("Made with Atom Editor")
-    print()
-    print("Utilizes Pygame 2.01")
-    print()
-    print("Other Used Resources: www.javatpoint.com")
-    print(style.RESET)
+import credits
 # Display
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption(GameName)
@@ -69,8 +56,10 @@ square1y8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y9 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 
 # Square 2
-square2x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
-square2y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+# square2x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+# square2y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square2x1 = 0
+square2y1 = 0
 # Square 3
 square3x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square3y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -192,20 +181,44 @@ while not done:
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_a:
                     if not square2x1 == game_border2:
                         square2x1 = square2x1 - 10
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_d:
                     if not square2x1 == game_border1:
                         square2x1 = square2x1 + 10
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_w:
                     if not square2y1 == game_border2:
                         square2y1 = square2y1 - 10
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_s:
                     if not square2y1 == game_border1:
                         square2y1 = square2y1 + 10
+                if event.key == pygame.K_LEFT:
+                    if not square2x1 == game_border2:
+                        square2x1 = square2x1 - speed
+                    elif sqyare2x1 == game_border2:
+                        facing = "Left"
+                if event.key == pygame.K_RIGHT:
+                    if not square2x1 == game_border1:
+                        square2x1 = square2x1 + speed
+                    elif square2x1 == game_border1:
+                        facing = "Right"
+                if event.key == pygame.K_UP:
+                    if not square2y1 == game_border2:
+                        square2y1 = square2y1 - speed
+                    elif square2y1 == game_border2:
+                        facing = "Up"
+                if event.key == pygame.K_DOWN:
+                    if not square2y1 == game_border1:
+                        square2y1 = square2y1 + speed
+                    elif square2y1 == game_border1:
+                        facing = "Down"
+                if event.key == pygame.K_ESCAPE:
+                    done = True
+                    print("Quit")
             if event.type == pygame.QUIT:
                 done = True
+                print("Quit")
         screen.fill((1, 50, 32))
         player_square = pygame.draw.rect(screen, square_color, [square2x1,square2y1,square_size,square_size])
         evil_square = pygame.draw.rect(screen, evil_square_color, [square1x1,square1y1,square_size,square_size])

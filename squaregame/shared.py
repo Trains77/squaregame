@@ -15,3 +15,4 @@ game_border2 = 0
 speed = 10
 fps = 30
 discord_presence = 0
+enable_music = 1
