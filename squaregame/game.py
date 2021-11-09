@@ -9,7 +9,7 @@ from pygame.locals import *
 pygame.init()
 from time import sleep
 import time
-from shared import credits, size, GameName, square_size, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
+from shared import size, GameName, square_size, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
 from colored import fore, back, style
 import math
 import random
