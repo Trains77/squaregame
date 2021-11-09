@@ -23,6 +23,7 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption(GameName)
 done = False
 clock = pygame.time.Clock()
+
 bordered1 = 0
 bordered2 = 0
 bordered3 = 0
@@ -33,6 +34,7 @@ bordered7 = 0
 bordered8 = 0
 bordered9 = 0
 bordered10 = 0
+borderedG1 = 0
 # Square 1
 square1x1 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x2 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
@@ -43,7 +45,6 @@ square1x6 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 1
 square1x7 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x8 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x9 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
-
 
 square1y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -64,120 +65,45 @@ square2y1 = 0
 square3x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square3y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 # Game
-
+def create_evil_square(square_movement, squarey, squarex, border):
+    if square_movement == "x":
+        if not squarey == game_border1:
+            if border == 0:
+                squarey = squarey + speed
+        elif squarey == game_border1:
+            border = 1
+        if not squarey == game_border2:
+            if border == 1:
+                squarey = squarey - speed
+        elif squarey == game_border2:
+            border = 0
+    elif square_movement == "y":
+        if not squarex == game_border1:
+            if border == 0:
+                squarex = squarex + speed
+        elif squarex == game_border1:
+            border = 1
+        if not squarex == game_border2:
+            if border == 1:
+                squarex = squarex - speed
+        elif squarex == game_border2:
+            border = 0
+    return squarey, squarex, border
 while not done:
-    # clock.tick() limits the while loop to a max of 10 times per second.
         clock.tick(fps)
-        if not square1x1 == game_border1:
-            if bordered1 == 0:
-                square1x1 = square1x1 + speed
-        elif square1x1 == game_border1:
-            bordered1 = 1
-        if not square1x1 == game_border2:
-            if bordered1 == 1:
-                square1x1 = square1x1 - speed
-        elif square1x1 == game_border2:
-            bordered1 = 0
-# end of stuff
-        if not square1x2 == game_border1:
-            if bordered2 == 0:
-                square1x2 = square1x2 + speed
-        elif square1x2 == game_border1:
-            bordered2 = 1
-        if not square1x2 == game_border2:
-            if bordered2 == 1:
-                square1x2 = square1x2 - speed
-        elif square1x2 == game_border2:
-            bordered2 = 0
-# end of stuff
-        if not square1x3 == game_border1:
-            if bordered3 == 0:
-                square1x3 = square1x3 + speed
-        elif square1x3 == game_border1:
-            bordered3 = 1
-        if not square1x3 == game_border2:
-            if bordered3 == 1:
-                square1x3 = square1x3 - speed
-        elif square1x3 == game_border2:
-            bordered3 = 0
-# end of stuff
-        if not square1x4 == game_border1:
-            if bordered4 == 0:
-                square1x4 = square1x4 + speed
-        elif square1x4 == game_border1:
-            bordered4 = 1
-        if not square1x4 == game_border2:
-            if bordered4 == 1:
-                square1x4 = square1x4 - speed
-        elif square1x4 == game_border2:
-            bordered4 = 0
-# end of stuff
-        if not square1x5 == game_border1:
-            if bordered5 == 0:
-                square1x5 = square1x5 + speed
-        elif square1x5 == game_border1:
-            bordered5 = 1
-        if not square1x5 == game_border2:
-            if bordered5 == 1:
-                square1x5 = square1x5 - speed
-        elif square1x5 == game_border2:
-            bordered5 = 0
-# end of stuff
-        if not square1x6 == game_border1:
-            if bordered6 == 0:
-                square1x6 = square1x6 + speed
-        elif square1x6 == game_border1:
-            bordered6 = 1
-        if not square1x6 == game_border2:
-            if bordered6 == 1:
-                square1x6 = square1x6 - speed
-        elif square1x6 == game_border2:
-            bordered6 = 0
-# end of stuff
-        if not square1y8 == game_border1:
-            if bordered9 == 0:
-                square1y8 = square1y8 + speed
-        elif square1y8 == game_border1:
-            bordered9 = 1
-        if not square1y8 == game_border2:
-            if bordered9 == 1:
-                square1y8 = square1y8 - speed
-        elif square1y8 == game_border2:
-            bordered9 = 0
-# end of stuff
-        if not square1y7 == game_border1:
-            if bordered8 == 0:
-                square1y7 = square1y7 + speed
-        elif square1y7 == game_border1:
-            bordered8 = 1
-        if not square1y7 == game_border2:
-            if bordered8 == 1:
-                square1y7 = square1y7 - speed
-        elif square1y7 == game_border2:
-            bordered8 = 0
-# end of stuff
-        if not square1y9 == game_border1:
-            if bordered10 == 0:
-                square1y9 = square1y9 + speed
-        elif square1y9 == game_border1:
-            bordered10 = 1
-        if not square1y9 == game_border2:
-            if bordered10 == 1:
-                square1y9 = square1y9 - speed
-        elif square1y9 == game_border2:
-            bordered10 = 0
-# end of stuff
-        if not square3y1 == game_border1:
-            if bordered7 == 0:
-                square3y1 = square3y1 + speed
-        elif square3y1 == game_border1:
-            bordered7 = 1
-        if not square3y1 == game_border2:
-            if bordered7 == 1:
-                square3y1 = square3y1 - speed
-        elif square3y1 == game_border2:
-            bordered7 = 0
-# end of stuff
+
+        square1y1, square1x1, bordered1 = create_evil_square("x", square1y1, square1x1, bordered1)
+        square1y2, square1x2, bordered2 = create_evil_square("x", square1y2, square1x2, bordered2)
+        square1y3, square1x3, bordered3 = create_evil_square("x", square1y3, square1x3, bordered3)
+        square1y4, square1x4, bordered4 = create_evil_square("x", square1y4, square1x4, bordered4)
+        square1y5, square1x5, bordered5 = create_evil_square("x", square1y5, square1x5, bordered5)
+        square1y6, square1x6, bordered6 = create_evil_square("x", square1y6, square1x6, bordered6)
+        square1y7, square1x7, bordered7 = create_evil_square("x", square1y7, square1x7, bordered7)
+
+        square1y7, square1x7, bordered7 = create_evil_square("y", square1y7, square1x7, bordered7)
+        square1y8, square1x8, bordered8 = create_evil_square("y", square1y8, square1x8, bordered8)
+        square1y9, square1x9, bordered9 = create_evil_square("y", square1y9, square1x9, bordered9)
+        square3y1, square3x1, borderedG1 = create_evil_square("y", square3y1, square3x1, borderedG1)
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
