@@ -106,46 +106,55 @@ while not done:
         square3y1, square3x1, borderedG1 = create_evil_square("y", square3y1, square3x1, borderedG1)
 
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_a:
-                    if not square2x1 == game_border2:
-                        square2x1 = square2x1 - 10
-                if event.key == pygame.K_d:
-                    if not square2x1 == game_border1:
-                        square2x1 = square2x1 + 10
-                if event.key == pygame.K_w:
-                    if not square2y1 == game_border2:
-                        square2y1 = square2y1 - 10
-                if event.key == pygame.K_s:
-                    if not square2y1 == game_border1:
-                        square2y1 = square2y1 + 10
-                if event.key == pygame.K_LEFT:
-                    if not square2x1 == game_border2:
-                        square2x1 = square2x1 - speed
-                    elif sqyare2x1 == game_border2:
-                        facing = "Left"
-                if event.key == pygame.K_RIGHT:
-                    if not square2x1 == game_border1:
-                        square2x1 = square2x1 + speed
-                    elif square2x1 == game_border1:
-                        facing = "Right"
-                if event.key == pygame.K_UP:
-                    if not square2y1 == game_border2:
-                        square2y1 = square2y1 - speed
-                    elif square2y1 == game_border2:
-                        facing = "Up"
-                if event.key == pygame.K_DOWN:
-                    if not square2y1 == game_border1:
-                        square2y1 = square2y1 + speed
-                    elif square2y1 == game_border1:
-                        facing = "Down"
-                if event.key == pygame.K_ESCAPE:
-                    done = True
-                    print("Quit")
             if event.type == pygame.QUIT:
                 done = True
-                print("Quit")
+        state = pygame.key.get_pressed()
+        if state[pygame.K_a]:
+            if not square2x1 == game_border2:
+                square2x1 = square2x1 - speed
+            elif sqyare2x1 == game_border2:
+                facing = "Left"
+        if state[pygame.K_d]:
+            if not square2x1 == game_border1:
+                square2x1 = square2x1 + speed
+            elif square2x1 == game_border1:
+                facing = "Right"
+        if state[pygame.K_w]:
+            if not square2y1 == game_border2:
+                square2y1 = square2y1 - speed
+            elif square2y1 == game_border2:
+                facing = "Up"
+        if state[pygame.K_s]:
+            if not square2y1 == game_border1:
+                square2y1 = square2y1 + speed
+            elif square2y1 == game_border1:
+                facing = "Down"
+        if state[pygame.K_LEFT]:
+            if not square2x1 == game_border2:
+                square2x1 = square2x1 - speed
+            elif sqyare2x1 == game_border2:
+                facing = "Left"
+        if state[pygame.K_RIGHT]:
+            if not square2x1 == game_border1:
+                square2x1 = square2x1 + speed
+            elif square2x1 == game_border1:
+                facing = "Right"
+        if state[pygame.K_UP]:
+            if not square2y1 == game_border2:
+                square2y1 = square2y1 - speed
+            elif square2y1 == game_border2:
+                facing = "Up"
+        if state[pygame.K_DOWN]:
+            if not square2y1 == game_border1:
+                square2y1 = square2y1 + speed
+            elif square2y1 == game_border1:
+                facing = "Down"
+        if state[pygame.K_ESCAPE]:
+            done = True
+            print("Quit")
+
         screen.fill((1, 50, 32))
+
         player_square = pygame.draw.rect(screen, square_color, [square2x1,square2y1,square_size,square_size])
         evil_square = pygame.draw.rect(screen, evil_square_color, [square1x1,square1y1,square_size,square_size])
         evil_square1 = pygame.draw.rect(screen, evil_square_color, [square1x2,square1y2,square_size,square_size])
