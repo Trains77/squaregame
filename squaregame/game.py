@@ -9,7 +9,7 @@ from pygame.locals import *
 pygame.init()
 from time import sleep
 import time
-from shared import size, GameName, square_size, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
+from shared import size, GameName, square_size, playerspeed, fps, square_color, evil_square_color, good_square_color, game_border1, game_border2, speed
 from colored import fore, back, style
 import math
 import random
@@ -110,44 +110,44 @@ while not done:
                 done = True
         state = pygame.key.get_pressed()
         if state[pygame.K_a]:
-            if not square2x1 == game_border2:
-                square2x1 = square2x1 - speed
-            elif sqyare2x1 == game_border2:
+            if not square2x1 <= game_border2:
+                square2x1 = square2x1 - playerspeed
+            elif square2x1 <= game_border2:
                 facing = "Left"
         if state[pygame.K_d]:
-            if not square2x1 == game_border1:
-                square2x1 = square2x1 + speed
-            elif square2x1 == game_border1:
+            if not square2x1 >= game_border1:
+                square2x1 = square2x1 + playerspeed
+            elif square2x1 >= game_border1:
                 facing = "Right"
         if state[pygame.K_w]:
-            if not square2y1 == game_border2:
-                square2y1 = square2y1 - speed
-            elif square2y1 == game_border2:
+            if not square2y1 <= game_border2:
+                square2y1 = square2y1 - playerspeed
+            elif square2y1 <= game_border2:
                 facing = "Up"
         if state[pygame.K_s]:
-            if not square2y1 == game_border1:
-                square2y1 = square2y1 + speed
-            elif square2y1 == game_border1:
+            if not square2y1 >= game_border1:
+                square2y1 = square2y1 + playerspeed
+            elif square2y1 >= game_border1:
                 facing = "Down"
         if state[pygame.K_LEFT]:
-            if not square2x1 == game_border2:
-                square2x1 = square2x1 - speed
-            elif sqyare2x1 == game_border2:
+            if not square2x1 <= game_border2:
+                square2x1 = square2x1 - playerspeed
+            elif square2x1 <= game_border2:
                 facing = "Left"
         if state[pygame.K_RIGHT]:
-            if not square2x1 == game_border1:
-                square2x1 = square2x1 + speed
-            elif square2x1 == game_border1:
+            if not square2x1 >= game_border1:
+                square2x1 = square2x1 + playerspeed
+            elif square2x1 >= game_border1:
                 facing = "Right"
         if state[pygame.K_UP]:
-            if not square2y1 == game_border2:
-                square2y1 = square2y1 - speed
-            elif square2y1 == game_border2:
+            if not square2y1 <= game_border2:
+                square2y1 = square2y1 - playerspeed
+            elif square2y1 <= game_border2:
                 facing = "Up"
         if state[pygame.K_DOWN]:
-            if not square2y1 == game_border1:
-                square2y1 = square2y1 + speed
-            elif square2y1 == game_border1:
+            if not square2y1 >= game_border1:
+                square2y1 = square2y1 + playerspeed
+            elif square2y1 >= game_border1:
                 facing = "Down"
         if state[pygame.K_ESCAPE]:
             done = True
