@@ -5,7 +5,7 @@ The game is basically you move a yellow square torwards a greenish square while 
 
 You move with the arrow keys
 
-It requires python 3.6 running on a ~~Linux system to run~~ it should work on Windows, however I cannot verify
+It requires Python3 and should work anywhere python can run, It has however, only been tested to work with Python 3.6 with Linux
 
 Requires the following packages: colored, pygame, and pydub
 
