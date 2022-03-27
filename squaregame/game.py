@@ -35,6 +35,7 @@ bordered8 = 0
 bordered9 = 0
 bordered10 = 0
 borderedG1 = 0
+
 # Square 1
 square1x1 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x2 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
@@ -45,6 +46,7 @@ square1x6 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 1
 square1x7 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x8 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 square1x9 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
+square1x10 = int(math.ceil(random.randint(game_border2,game_border1) / 10.0)) * 10
 
 square1y1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y2 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -55,6 +57,7 @@ square1y6 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y7 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y8 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 square1y9 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
+square1y10 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
 
 # Square 2
 # square2x1 = int(math.ceil(random.randint(10,450) / 10.0)) * 10
@@ -99,10 +102,12 @@ while not done:
         square1y5, square1x5, bordered5 = create_evil_square("x", square1y5, square1x5, bordered5)
         square1y6, square1x6, bordered6 = create_evil_square("x", square1y6, square1x6, bordered6)
         square1y7, square1x7, bordered7 = create_evil_square("x", square1y7, square1x7, bordered7)
+        square1y10, square1x10, bordered10 = create_evil_square("x", square1y10, square1x10, bordered10)
 
         square1y7, square1x7, bordered7 = create_evil_square("y", square1y7, square1x7, bordered7)
         square1y8, square1x8, bordered8 = create_evil_square("y", square1y8, square1x8, bordered8)
         square1y9, square1x9, bordered9 = create_evil_square("y", square1y9, square1x9, bordered9)
+        square1y10, square1x10, bordered10 = create_evil_square("y", square1y10, square1x10, bordered10)
         square3y1, square3x1, borderedG1 = create_evil_square("y", square3y1, square3x1, borderedG1)
 
         for event in pygame.event.get():
@@ -165,6 +170,7 @@ while not done:
         evil_square6 = pygame.draw.rect(screen, evil_square_color, [square1x8,square1y8,square_size,square_size])
         evil_square7 = pygame.draw.rect(screen, evil_square_color, [square1x7,square1y7,square_size,square_size])
         evil_square8 = pygame.draw.rect(screen, evil_square_color, [square1x9,square1y9,square_size,square_size])
+        evil_square9 = pygame.draw.rect(screen, evil_square_color, [square1x10,square1y10,square_size,square_size])
 
         good_square = pygame.draw.rect(screen, good_square_color, [square3x1,square3y1,square_size,square_size])
 #        image_display(screen, "Textures/dragons.png", [100,100])
